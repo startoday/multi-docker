@@ -4,7 +4,6 @@ services:
   - docker
 
 before_install:
-<<<<<<< HEAD
   - docker build -t zorro777/react-test -f ./client/Dockerfile.dev ./client
 
 script:
@@ -15,30 +14,12 @@ after_success:
   - docker build -t zorro777/multi-nginx ./nginx
   - docker build -t zorro777/multi-server ./server
   - docker build -t zorro777/multi-worker ./worker
-=======
-  - docker build -t zor/react-test -f ./client/Dockerfile.dev ./client
-
-script:
-  - docker run -e CI=true zor/react-test npm test -- --coverage
-
-after_success:
-  - docker build -t zor/multi-client ./client
-  - docker build -t zor/multi-nginx ./nginx
-  - docker build -t zor/multi-server ./server
-  - docker build -t zor/multi-worker ./worker
->>>>>>> b3b15699451b3e99233ab48e742efd2396fe4114
 
   # log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take images and push to the docker hub
-<<<<<<< HEAD
   - docker push zorro777/multi-client 
   - docker push zorro777/multi-nginx 
   - docker push zorro777/multi-server 
   - docker push zorro777/multi-worker 
-=======
-  - docker push -t zor/multi-client 
-  - docker push -t zor/multi-nginx 
-  - docker push -t zor/multi-server 
-  - docker push -t zor/multi-worker 
->>>>>>> b3b15699451b3e99233ab48e742efd2396fe4114
+
