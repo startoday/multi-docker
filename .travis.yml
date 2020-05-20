@@ -18,7 +18,7 @@ after_success:
   # log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take images and push to the docker hub
-  - docker push zor/multi-client 
-  - docker push zor/multi-nginx 
-  - docker push zor/multi-server 
-  - docker push zor/multi-worker 
+  - docker push -t zor/multi-client 
+  - docker push -t zor/multi-nginx 
+  - docker push -t zor/multi-server 
+  - docker push -t zor/multi-worker 
